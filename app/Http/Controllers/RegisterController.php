@@ -12,9 +12,12 @@ class RegisterController extends Controller
    }
 
 
-   public function store()
+   public function store(Request $request)
    {
       //! permite hacer debug en laravel
-      dd('Post...');
+      // dd($request);                  // acede a toda la informaciond el request
+      // dd($request->get('name'));     // acede solo a 'name'
+
+      //! validacion en laravel
    }
 }
