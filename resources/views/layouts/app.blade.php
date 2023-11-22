@@ -5,8 +5,11 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       @vite('resources/css/app.css')
 
-      <title>Devstagram - @yield('titulo')</title>
+      <link rel="stylesheet" href="">
 
+      <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+      <title>Devstagram - @yield('titulo')</title>
+      <script src="{{ asset('js/app.js') }}" defer></script>
    </head>
    <body class="bg-gray-100">
       <header class="p-5 border-b bg-white shadow">
@@ -30,7 +33,7 @@
       </main>
 
 
-      <footer class="text-center p-5 text-gray-500 font-bold">
+      <footer class="text-center mt-10 p-5 text-gray-500 font-bold">
          Devstagram - Todos los derechos reservados {{ now()->year }}
 
          {{-- @php echo date('Y') @endphp --}}
