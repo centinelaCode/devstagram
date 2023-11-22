@@ -11,8 +11,10 @@ class RegisterController extends Controller
       return view('auth.register');
    }
 
+
    public function store()
    {
+      //! permite hacer debug en laravel
       dd('Post...');
    }
 }

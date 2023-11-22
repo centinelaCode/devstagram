@@ -12,7 +12,7 @@
       </div>
 
       <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
-         <form action="/crear-cuenta" method="POST">
+         <form action="{{ route('register') }}" method="POST">
             @csrf
 
             {{-- Name --}}
