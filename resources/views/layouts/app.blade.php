@@ -10,11 +10,7 @@
    </head>
    <body>
 
-      <h1 class="text-4xl font-extrabold">@yield('titulo')</h1>
 
-      <hr>
-
-      @yield('contenido')
 
    </body>
 </html>
