@@ -6,12 +6,12 @@
 
 
 @section('contenido')
-   <div class="md:flex justify-center md:gap-10 md:items-center">
+   <div class="md:flex justify-center md:gap-2 md:items-center">
       <div class="md:w-6/12">
          <img src="{{ asset('img/registrar.jpg') }}" alt="Imagen Registro Usuarios">
       </div>
 
-      <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-xl">
+      <div class="md:w-6/12 bg-white p-6 rounded-lg shadow-xl">
          <form action="{{ route('register') }}" method="POST">
             @csrf
 
@@ -25,8 +25,12 @@
                   name="name"
                   type="text"
                   placeholder="Tu Nombre"
-                  class="border p-3 w-full rounded-lg"
+                  class="border p-3 w-full rounded-lg @error('name') border-red-500 @enderror"
+                  value="{{ old('name') }}"
                >
+               @error('name')
+                  <p class="text-red-500 font-bold my-2 text-right text-sm">{{ $message }}</p>
+               @enderror
             </div>
 
             {{-- Username --}}

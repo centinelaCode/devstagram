@@ -19,5 +19,12 @@ class RegisterController extends Controller
       // dd($request->get('name'));     // acede solo a 'name'
 
       //! validacion en laravel
+      $this->validate($request, [
+         'name' => ['required', 'max:30'],
+         // 'username' => '',
+         // 'email' => '',
+         // 'password' => '',
+         // 'password' => '',
+      ]);
    }
 }
