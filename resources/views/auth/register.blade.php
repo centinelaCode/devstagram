@@ -12,7 +12,7 @@
       </div>
 
       <div class="md:w-6/12 bg-white p-6 rounded-lg shadow-xl">
-         <form action="{{ route('register') }}" method="POST">
+         <form action="{{ route('register') }}" method="POST" novalidate>
             @csrf
 
             {{-- Name --}}
@@ -43,8 +43,12 @@
                   name="username"
                   type="text"
                   placeholder="Tu Nombre de usuario"
-                  class="border p-3 w-full rounded-lg"
+                  class="border p-3 w-full rounded-lg @error('username') border-red-500 @enderror"
                >
+
+               @error('username')
+                  <p class="text-red-500 font-bold my-2 text-right text-sm">{{ $message }}</p>
+               @enderror
             </div>
 
             {{-- Email --}}
@@ -57,8 +61,12 @@
                   name="email"
                   type="email"
                   placeholder="Tu Email de Registro"
-                  class="border p-3 w-full rounded-lg"
+                  class="border p-3 w-full rounded-lg @error('email') border-red-500 @enderror"
                >
+
+               @error('email')
+                  <p class="text-red-500 font-bold my-2 text-right text-sm">{{ $message }}</p>
+               @enderror
             </div>
 
             {{-- Password --}}
@@ -71,8 +79,12 @@
                   name="password"
                   type="password"
                   placeholder="Password de Registro"
-                  class="border p-3 w-full rounded-lg"
+                  class="border p-3 w-full rounded-lg @error('password') border-red-500 @enderror"
                >
+
+               @error('password')
+                  <p class="text-red-500 font-bold my-2 text-right text-sm">{{ $message }}</p>
+               @enderror
             </div>
 
             {{-- Password --}}
