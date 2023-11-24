@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class RegisterController extends Controller
@@ -19,6 +20,9 @@ class RegisterController extends Controller
       // dd($request);                  // acede a toda la informaciond el request
       // dd($request->get('name'));     // acede solo a 'name'
 
+      //! Modificar el Request
+      $request->request->add(['username' => Str::slug($request->username)]);
+
       //! validacion en laravel
       $this->validate($request, [
          'name' => ['required', 'max:30'],
@@ -29,13 +33,17 @@ class RegisterController extends Controller
 
       // dd('Creando Usuario');
 
-      // creando un registro
+      //! creando un registro (lo guarda en la db)
       User::create([
          'name' => $request->name,
          'username' => $request->username,
          'email' => $request->email,
          'password' => $request->password
+         // 'password' => Hash::make( $request->password )  // por si no se hashea el password
       ]);
+
+      // redireccionar el usuario
+
 
    }
 }
